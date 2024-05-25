@@ -1,0 +1,8 @@
+{
+  "Index": {
+    "pageDescription": "GPT para generación de video",
+    "generateVideo": "Generar Video",
+    "renderEngine": "Motor de renderizado",
+    "promptGenerator": "Generador de prompts"
+  }
+}

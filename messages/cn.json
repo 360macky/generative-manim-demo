@@ -1,0 +1,8 @@
+{
+  "Index": {
+    "pageDescription": "用于视频生成的 GPT",
+    "generateVideo": "生成视频",
+    "renderEngine": "渲染引擎",
+    "promptGenerator": "提示发生器"
+  }
+}
