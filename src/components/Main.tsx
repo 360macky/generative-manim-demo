@@ -166,7 +166,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
           <div className="w-full">
             <form className="w-full " onSubmit={handleVideoGeneration}>
               <label htmlFor="prompt" className="text-left">
-                Make a new video
+                Input the prompt to generate a video
               </label>
               <div className="flex gap-x-2 mt-2">
                 <Input
@@ -235,7 +235,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
             >
               <div className="w-6/12">
                 <label htmlFor="code" className="text-left">
-                  Render a video from code
+                  Input the code to render a video
                 </label>
                 <div className="mt-2">
                   <Editor
@@ -284,7 +284,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
           <div className="w-full">
             <form className="w-full " onSubmit={handleCodeGeneration}>
               <label htmlFor="prompt" className="text-left">
-                Generate code from prompt
+                Input the prompt to generate code
               </label>
               <div className="flex gap-x-2 mt-2">
                 <Input
