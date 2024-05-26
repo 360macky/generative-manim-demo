@@ -1,8 +1,8 @@
 import rateLimit from "@/utils/rate-limit";
 import { NextResponse } from "next/server";
 
-// 8 requests per hour
-const REQUESTS_PER_INTERVAL = 8;
+// 32 requests per hour
+const REQUESTS_PER_INTERVAL = 32;
 const INTERVAL = 60 * 1000 * 60;
 const limiter = rateLimit({ interval: INTERVAL });
 
