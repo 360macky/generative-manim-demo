@@ -12,10 +12,10 @@ export default function Home() {
         <div className="text-center gap-y-4 px-0 lg:px-24 w-full">
           <Image
             src={Logo}
-            alt="Logo"
+            alt="Generative Manim logo"
             className="w-24 lg:w-32 h-24 lg:h-32 mx-auto mt-12"
           />
-          <div className="flex flex-col gap-y-2 w-full">
+          <div className="flex flex-col gap-y-2 w-full mt-2.5">
             <h1
               className="text-4xl lg:text-5xl font-semibold tracking-tight"
               itemProp="title"
@@ -56,12 +56,12 @@ export default function Home() {
           </section>
           <section className="text-left max-w-screen-lg mx-auto p-2">
             <h2
-              className="text-2xl lg:text-3xl font-semibold tracking-tight"
+              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
               id="how-it-works"
             >
-              <i role="img" aria-label="⚡️">
+              <span role="img" aria-label="⚡️">
                 ⚡️
-              </i>{" "}
+              </span>{" "}
               How it works
             </h2>
             <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
@@ -88,12 +88,75 @@ export default function Home() {
           </section>
           <section className="text-left max-w-screen-lg mx-auto p-2">
             <h2
-              className="text-2xl lg:text-3xl font-semibold tracking-tight"
+              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
               id="contributors"
             >
-              <i role="img" aria-label="🚀">
+              <span role="img" aria-label="💻">
+                💻
+              </span>{" "}
+              Models
+            </h2>
+            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
+              The models we use to generate Manim code from text.
+            </p>
+            <p>
+              Generative Manim uses models to generate code from text. The first
+              model we used was <b>GPT-4</b> with a <b>Zero Shot Learning</b>{" "}
+              strategy. Today we are using two models.
+            </p>
+            <h3
+              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+              id="gpt-4o"
+            >
+              🤖 GPT-4o
+            </h3>
+            <p>
+              GPT-4o is the next-generation model from OpenAI. We use a basic
+              system prompt to generate the code. We add a few extra
+              instructions to help the model understand the task.
+            </p>
+            <h3
+              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+              id="gpt-3.5"
+            >
+              📡 GPT-3.5 Fine-Tuned
+            </h3>
+            <p>
+              We trained a GPT-3.5 model with a few examples of Manim code. The
+              model is fine-tuned to generate Manim code from a prompt. This
+              model is a little bit slower than GPT-4o.
+            </p>
+            <h3
+              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+              id="other-models"
+            >
+              🕹️ Other models
+            </h3>
+            <p>
+              We are currently working on creating new models to integrate with
+              Generative Manim.
+            </p>
+            <p>
+              If you have an idea or want to help us, go to our{" "}
+              <a
+                href="https://discord.gg/HkbYEGybGv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-rose-300 underline-offset-4"
+              >
+                Discord Community
+              </a>{" "}
+              and let us know.
+            </p>
+          </section>
+          <section className="text-left max-w-screen-lg mx-auto p-2">
+            <h2
+              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
+              id="contributors"
+            >
+              <span role="img" aria-label="🚀">
                 🚀
-              </i>{" "}
+              </span>{" "}
               Contributors
             </h2>
             <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
