@@ -126,10 +126,10 @@ const Switcher = ({ translations }: { translations?: any }) => {
 
   return (
     <div className="w-full">
-      <div className="w-full bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg">
+      <div className="w-full flex flex-col lg:flex-row bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg">
         <button
           className={classNames(
-            "p-2 w-4/12 text-sm lg:text-base rounded-lg transition",
+            "p-2 w-full lg:w-4/12 text-sm lg:text-base rounded-lg transition",
             {
               "bg-white dark:bg-neutral-900 shadow": topBar === "main",
             }
@@ -140,7 +140,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
         </button>
         <button
           className={classNames(
-            "p-2 w-4/12 text-sm lg:text-base rounded-lg transition",
+            "p-2 w-full lg:w-4/12 text-sm lg:text-base rounded-lg transition",
             {
               "bg-white dark:bg-neutral-900 shadow": topBar === "render",
             }
@@ -151,7 +151,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
         </button>
         <button
           className={classNames(
-            "p-2 w-4/12 text-sm lg:text-base rounded-lg transition",
+            "p-2 w-full lg:w-4/12 text-sm lg:text-base rounded-lg transition",
             {
               "bg-white dark:bg-neutral-900 shadow": topBar === "prompt",
             }
@@ -161,14 +161,14 @@ const Switcher = ({ translations }: { translations?: any }) => {
           {translations?.promptGenerator}
         </button>
       </div>
-      <div className="w-full p-6 min-h-[40vh]">
+      <div className="w-full min-h-[40vh]">
         {topBar === "main" && (
           <div className="w-full">
-            <form className="w-full " onSubmit={handleVideoGeneration}>
+            <form className="w-full mt-4" onSubmit={handleVideoGeneration}>
               <label htmlFor="prompt" className="text-left">
                 Input the prompt to generate a video
               </label>
-              <div className="flex gap-x-2 mt-2">
+              <div className="flex flex-col lg:flex-row gap-x-2 gap-y-2 mt-2">
                 <Input
                   id="prompt"
                   type="text"
@@ -177,6 +177,17 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   value={promptToCode}
                   onChange={(e) => setPromptToCode(e.target.value)}
                 />
+                <Select
+                  name="model"
+                  id="model"
+                  value={promptToCodeModel}
+                  onChange={(e) => setPromptToCodeModel(e.target.value)}
+                >
+                  <option value="gpt-4o">GPT-4o</option>
+                  <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
+                    Fine-tuned GPT-3.5
+                  </option>
+                </Select>
                 <Button
                   className="px-4 flex gap-x-2 items-center justify-center"
                   disabled={renderizationLoading}
@@ -192,8 +203,8 @@ const Switcher = ({ translations }: { translations?: any }) => {
                 </Button>
               </div>
             </form>
-            <div className="flex gap-x-4 mt-4">
-              <div className="w-6/12">
+            <div className="flex flex-col lg:flex-row gap-x-4 mt-2">
+              <div className="w-full lg:w-6/12">
                 <label htmlFor="code" className="text-left">
                   Render a video from code
                 </label>
@@ -214,7 +225,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   />
                 </div>
               </div>
-              <div className="w-6/12">
+              <div className="w-full lg:w-6/12">
                 <label htmlFor="code" className="text-left">
                   Video
                 </label>
@@ -230,10 +241,10 @@ const Switcher = ({ translations }: { translations?: any }) => {
         {topBar === "render" && (
           <div className="w-full">
             <form
-              className="w-full flex gap-x-4"
+              className="w-full flex flex-col lg:flex-row gap-x-4 mt-4"
               onSubmit={handleRenderization}
             >
-              <div className="w-6/12">
+              <div className="w-full lg:w-6/12">
                 <label htmlFor="code" className="text-left">
                   Input the code to render a video
                 </label>
@@ -267,7 +278,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   </Button>
                 </div>
               </div>
-              <div className="w-6/12">
+              <div className="w-full lg:w-6/12">
                 <label htmlFor="code" className="text-left">
                   Video
                 </label>
@@ -282,11 +293,11 @@ const Switcher = ({ translations }: { translations?: any }) => {
         )}
         {topBar === "prompt" && (
           <div className="w-full">
-            <form className="w-full " onSubmit={handleCodeGeneration}>
+            <form className="w-full mt-4" onSubmit={handleCodeGeneration}>
               <label htmlFor="prompt" className="text-left">
                 Input the prompt to generate code
               </label>
-              <div className="flex gap-x-2 mt-2">
+              <div className="flex flex-col lg:flex-row gap-x-2 gap-y-2 mt-2">
                 <Input
                   id="prompt"
                   type="text"
