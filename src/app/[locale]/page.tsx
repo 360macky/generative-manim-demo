@@ -56,7 +56,7 @@ export default function Home() {
           </section>
           <section className="text-left max-w-screen-lg mx-auto p-2">
             <h2
-              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
+              className="text-2xl lg:text-3xl font-bold tracking-tight mt-2"
               id="how-it-works"
             >
               <span role="img" aria-label="⚡️">
@@ -64,9 +64,35 @@ export default function Home() {
               </span>{" "}
               How it works
             </h2>
-            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
+            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-300 my-2">
               Making video animations accessible to everyone.{" "}
             </p>
+            <p>
+              Generative Manim is an open-source tool for generating animation
+              videos from text. It is divided in three parts:
+            </p>
+            <ul className="list-disc list-inside">
+              <li>
+                <b>Generate Video:</b> Generate the video from the text.
+              </li>
+              <li>
+                <b>Render Engine:</b> Render the video from the code.
+              </li>
+              <li>
+                <b>Prompt Generator:</b> Generate the code from the text.
+              </li>
+            </ul>
+            <p>
+              The <b>Generate Video</b> part is the sum of the{" "}
+              <b>Prompt Generator</b> and the <b>Render Engine</b> in a single
+              step.
+            </p>
+            <h3 className="text-xl lg:text-2xl my-2 font-semibold tracking-tight">
+              <span role="img" aria-label="💡">
+                💡
+              </span>{" "}
+              Concept
+            </h3>
             <p>
               Imagine a future where you can watch an animation video from a
               concept you have in your mind in a few seconds. That would be
@@ -88,7 +114,7 @@ export default function Home() {
           </section>
           <section className="text-left max-w-screen-lg mx-auto p-2">
             <h2
-              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
+              className="text-2xl lg:text-3xl font-bold tracking-tight mt-2"
               id="contributors"
             >
               <span role="img" aria-label="💻">
@@ -96,7 +122,7 @@ export default function Home() {
               </span>{" "}
               Models
             </h2>
-            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
+            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-300 my-2">
               The models we use to generate Manim code from text.
             </p>
             <p>
@@ -104,38 +130,46 @@ export default function Home() {
               model we used was <b>GPT-4</b> with a <b>Zero Shot Learning</b>{" "}
               strategy. Today we are using two models.
             </p>
-            <h3
-              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
-              id="gpt-4o"
-            >
-              🤖 GPT-4o
-            </h3>
-            <p>
-              GPT-4o is the next-generation model from OpenAI. We use a basic
-              system prompt to generate the code. We add a few extra
-              instructions to help the model understand the task.
-            </p>
-            <h3
-              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
-              id="gpt-3.5"
-            >
-              📡 GPT-3.5 Fine-Tuned
-            </h3>
-            <p>
-              We trained a GPT-3.5 model with a few examples of Manim code. The
-              model is fine-tuned to generate Manim code from a prompt. This
-              model is a little bit slower than GPT-4o.
-            </p>
-            <h3
-              className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
-              id="other-models"
-            >
-              🕹️ Other models
-            </h3>
-            <p>
-              We are currently working on creating new models to integrate with
-              Generative Manim.
-            </p>
+            <div className="flex flex-col lg:flex-row gap-4 my-6">
+              <div className="flex flex-col border dark:border-neutral-700 dark:hover:border-rose-300 transition lg:w-4/12 p-5 rounded-lg hover:scale-105">
+                <h3
+                  className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+                  id="gpt-4o"
+                >
+                  🤖 GPT-4o
+                </h3>
+                <p>
+                  GPT-4o is the next-generation model from OpenAI. We use a
+                  basic system prompt to generate the code. We add a few extra
+                  instructions to help the model understand the task.
+                </p>
+              </div>
+              <div className="flex flex-col border dark:border-neutral-700 dark:hover:border-rose-300 transition lg:w-4/12 p-5 rounded-lg hover:scale-105">
+                <h3
+                  className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+                  id="gpt-3.5"
+                >
+                  📡 GPT-3.5 Fine-Tuned
+                </h3>
+                <p>
+                  We trained a GPT-3.5 model with a few examples of Manim code.
+                  The model is fine-tuned to generate Manim code from a prompt.
+                  This model is a little bit slower than GPT-4o.
+                </p>
+              </div>
+              <div className="flex flex-col border dark:border-neutral-700 dark:hover:border-rose-300 transition lg:w-4/12 p-5 rounded-lg hover:scale-105">
+                <h3
+                  className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
+                  id="other-models"
+                >
+                  🕹️ Other models
+                </h3>
+                <p>
+                  We are currently working on creating new models to integrate
+                  with Generative Manim.
+                </p>
+              </div>
+            </div>
             <p>
               If you have an idea or want to help us, go to our{" "}
               <a
@@ -151,7 +185,7 @@ export default function Home() {
           </section>
           <section className="text-left max-w-screen-lg mx-auto p-2">
             <h2
-              className="text-2xl lg:text-3xl font-semibold tracking-tight mt-2"
+              className="text-2xl lg:text-3xl font-bold tracking-tight mt-2"
               id="contributors"
             >
               <span role="img" aria-label="🚀">
@@ -159,7 +193,7 @@ export default function Home() {
               </span>{" "}
               Contributors
             </h2>
-            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-400 my-2">
+            <p className="text-lg lg:text-xl text-neutral-500 dark:text-neutral-300 my-2">
               Awesome people that are contributing to the project.
             </p>
             <p>
@@ -216,7 +250,7 @@ export default function Home() {
       <footer className="bg-white md:flex dark:bg-neutral-900 border border-t-neutral-200 dark:border-t-neutral-800 border-transparent mt-12">
         <div className="m-auto max-w-screen-lg md:py-4 flex w-full flex-col justify-center md:flex-row md:justify-between">
           <div className="mx-auto w-full max-w-screen-lg p-4 py-6 lg:py-8">
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 text-center">
+            <p className="text-sm text-neutral-500 dark:text-neutral-300 text-center">
               Made by the{" "}
               <a
                 href="https://discord.gg/HkbYEGybGv"
