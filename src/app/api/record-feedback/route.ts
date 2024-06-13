@@ -1,10 +1,11 @@
 import { google } from "googleapis";
 import { JWT } from "google-auth-library";
 
-// Configure the JWT auth client
+const privateKey = process.env.SPREADSHEET_PRIVATE_KEY?.replace(/\\n/g, '\n');
+
 const authClient = new JWT({
   email: process.env.SPREADSHEET_EMAIL,
-  key: process.env.SPREADSHEET_PRIVATE_KEY,
+  key: privateKey,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
