@@ -4,7 +4,15 @@ import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
-import { Copy, Download, Loader2, Video, WandSparkles } from "lucide-react";
+import {
+  Copy,
+  Download,
+  Loader2,
+  ThumbsDown,
+  ThumbsUp,
+  Video,
+  WandSparkles,
+} from "lucide-react";
 import Editor from "@monaco-editor/react";
 import { useChat } from "ai/react";
 import Select from "./Select";
@@ -112,6 +120,37 @@ const Switcher = ({ translations }: { translations?: any }) => {
     } finally {
       setPromptToCodeLoading(false);
     }
+  };
+
+  const isFeedbackEnabled = (): boolean => {
+    if (topBar === "main") {
+      return (
+        promptToCode !== "" && codeToVideo !== "" && currentVideoURL !== ""
+      );
+    } else if (topBar === "render") {
+      return codeToVideo !== "" && currentVideoURL !== "";
+    } else if (topBar === "prompt") {
+      return promptToCode !== "" && promptToCodeResult !== "";
+    }
+    return false;
+  };
+
+  const provideFeedback = async (feedback: "POSITIVE" | "NEGATIVE") => {
+    const response = await fetch("/api/record-feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        feedback,
+        code: codeToVideo,
+        video_url: currentVideoURL,
+        timestamp: new Date().toISOString(),
+        prompt: promptToCode,
+        model: promptToCodeModel,
+      }),
+    });
+    alert(`We have recorded your feedback. Thank you!`);
   };
 
   useEffect(() => {
@@ -234,6 +273,27 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   controls
                   className="mt-2 w-full rounded-lg"
                 ></video>
+                <div
+                  className={classNames(
+                    "flex gap-x-2 py-2 justify-center transition-all",
+                    {
+                      "opacity-0": !isFeedbackEnabled(),
+                    }
+                  )}
+                >
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("POSITIVE")}
+                  >
+                    <ThumbsUp />
+                  </button>
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("NEGATIVE")}
+                  >
+                    <ThumbsDown />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -287,6 +347,27 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   controls
                   className="mt-2 w-full rounded-lg"
                 ></video>
+                <div
+                  className={classNames(
+                    "flex gap-x-2 py-2 justify-center transition-all",
+                    {
+                      "opacity-0": !isFeedbackEnabled(),
+                    }
+                  )}
+                >
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("POSITIVE")}
+                  >
+                    <ThumbsUp />
+                  </button>
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("NEGATIVE")}
+                  >
+                    <ThumbsDown />
+                  </button>
+                </div>
               </div>
             </form>
           </div>
@@ -358,6 +439,27 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   <Copy />
                   <span>Copy</span>
                 </Button>
+                <div
+                  className={classNames(
+                    "flex gap-x-2 py-2 justify-center transition-all",
+                    {
+                      "opacity-0": !isFeedbackEnabled(),
+                    }
+                  )}
+                >
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("POSITIVE")}
+                  >
+                    <ThumbsUp />
+                  </button>
+                  <button
+                    className="p-4 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 active:ring-4 active:ring-neutral-400 dark:active:ring-neutral-500 transition"
+                    onClick={() => provideFeedback("NEGATIVE")}
+                  >
+                    <ThumbsDown />
+                  </button>
+                </div>
                 <Button
                   className="px-6 flex gap-x-2 items-center justify-center mt-2"
                   disabled={!promptToCodeResult}
