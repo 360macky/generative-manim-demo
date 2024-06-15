@@ -40,16 +40,19 @@ const Switcher = ({ translations }: { translations?: any }) => {
     setRenderizationLoading(true);
     // Use handleCodeGeneration and handleRenderization in sequence
     try {
-      const response = await fetch("https://api.animo.video/generate-code", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: promptToCode,
-          model: promptToCodeModel,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/generate-code`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: promptToCode,
+            model: promptToCodeModel,
+          }),
+        }
+      );
       const data = await response.json();
       const code = cleaner(data.code);
       setCodeToVideo(code);
@@ -101,16 +104,19 @@ const Switcher = ({ translations }: { translations?: any }) => {
     setPromptToCodeLoading(true);
     e.preventDefault();
     try {
-      const response = await fetch("https://api.animo.video/generate-code", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt: promptToCode,
-          model: promptToCodeModel,
-        }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/generate-code`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: promptToCode,
+            model: promptToCodeModel,
+          }),
+        }
+      );
       const data = await response.json();
       setPromptToCodeResult(cleaner(data.code));
     } catch (error) {
