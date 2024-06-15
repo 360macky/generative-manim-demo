@@ -51,7 +51,8 @@ const Switcher = ({ translations }: { translations?: any }) => {
         }),
       });
       const data = await response.json();
-      setCodeToVideo(cleaner(data.code));
+      const code = cleaner(data.code);
+      setCodeToVideo(code);
 
       const response2 = await fetch("/api/generate-video", {
         method: "POST",
@@ -59,7 +60,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          code: data,
+          code,
         }),
       });
 
