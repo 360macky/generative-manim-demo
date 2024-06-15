@@ -30,27 +30,28 @@ const Switcher = ({ translations }: { translations?: any }) => {
   const [renderizationLoading, setRenderizationLoading] = useState(false);
   const [currentVideoURL, setCurrentVideoURL] = useState("");
 
+  const cleaner = (code: string) => {
+    const cleaned = code.replace(/```python/g, "").replace(/```/g, "");
+    return cleaned;
+  };
+
   const handleVideoGeneration = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setRenderizationLoading(true);
     // Use handleCodeGeneration and handleRenderization in sequence
     try {
-      const response = await fetch("/api/generate-code", {
+      const response = await fetch("https://api.animo.video/generate-code", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          messages: [
-            {
-              role: "user",
-              content: promptToCode,
-            },
-          ],
+          prompt: promptToCode,
+          model: promptToCodeModel,
         }),
       });
-      const data = await response.text();
-      setCodeToVideo(data);
+      const data = await response.json();
+      setCodeToVideo(cleaner(data.code));
 
       const response2 = await fetch("/api/generate-video", {
         method: "POST",
@@ -99,22 +100,18 @@ const Switcher = ({ translations }: { translations?: any }) => {
     setPromptToCodeLoading(true);
     e.preventDefault();
     try {
-      const response = await fetch("/api/generate-code", {
+      const response = await fetch("https://api.animo.video/generate-code", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          messages: [
-            {
-              role: "user",
-              content: promptToCode,
-            },
-          ],
+          prompt: promptToCode,
+          model: promptToCodeModel,
         }),
       });
-      const data = await response.text();
-      setPromptToCodeResult(data);
+      const data = await response.json();
+      setPromptToCodeResult(cleaner(data.code));
     } catch (error) {
       console.error(error);
     } finally {
@@ -150,7 +147,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
         model: promptToCodeModel,
       }),
     });
-    alert(`We have recorded your feedback. Thank you!`);
+    alert("We have recorded your feedback. Thank you!");
   };
 
   useEffect(() => {

@@ -31,8 +31,6 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log("Data appended to Google Sheets:", response.data);
-
     return new Response("Feedback recorded successfully", { status: 200 });
   } catch (error) {
     console.error("Error recording feedback:", error);
