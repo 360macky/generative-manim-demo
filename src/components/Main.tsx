@@ -226,10 +226,17 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   value={promptToCodeModel}
                   onChange={(e) => setPromptToCodeModel(e.target.value)}
                 >
-                  <option value="gpt-4o">GPT-4o</option>
-                  <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
-                    Fine-tuned GPT-3.5
-                  </option>
+                  <optgroup label="OpenAI GPT">
+                    <option value="gpt-4o">GPT-4o</option>
+                    <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
+                      Fine-tuned GPT-3.5
+                    </option>
+                  </optgroup>
+                  <optgroup label="Claude">
+                    <option value="claude-3-sonnet-20240229">
+                      Claude 3 Sonnet
+                    </option>
+                  </optgroup>
                 </Select>
                 <Button
                   className="px-4 flex gap-x-2 items-center justify-center"
@@ -397,10 +404,17 @@ const Switcher = ({ translations }: { translations?: any }) => {
                   value={promptToCodeModel}
                   onChange={(e) => setPromptToCodeModel(e.target.value)}
                 >
-                  <option value="gpt-4o">GPT-4o</option>
-                  <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
-                    Fine-tuned GPT-3.5
-                  </option>
+                  <optgroup label="OpenAI GPT">
+                    <option value="gpt-4o">GPT-4o</option>
+                    <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
+                      Fine-tuned GPT-3.5
+                    </option>
+                  </optgroup>
+                  <optgroup label="Claude">
+                    <option value="claude-3-sonnet-20240229">
+                      Claude 3 Sonnet
+                    </option>
+                  </optgroup>
                 </Select>
                 <Button
                   className="px-4 flex gap-x-2 items-center justify-center"
