@@ -233,6 +233,9 @@ const Switcher = ({ translations }: { translations?: any }) => {
                     </option>
                   </optgroup>
                   <optgroup label="Claude">
+                    <option value="claude-3-5-sonnet-20240620">
+                      Claude 3.5 Sonnet
+                    </option>
                     <option value="claude-3-sonnet-20240229">
                       Claude 3 Sonnet
                     </option>
@@ -411,6 +414,9 @@ const Switcher = ({ translations }: { translations?: any }) => {
                     </option>
                   </optgroup>
                   <optgroup label="Claude">
+                    <option value="claude-3-5-sonnet-20240620">
+                      Claude 3.5 Sonnet
+                    </option>
                     <option value="claude-3-sonnet-20240229">
                       Claude 3 Sonnet
                     </option>
