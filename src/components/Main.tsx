@@ -56,14 +56,19 @@ const Switcher = ({ translations }: { translations?: any }) => {
       const data = await response.json();
       const code = cleaner(data.code);
       setCodeToVideo(code);
+      const iteration = Math.floor(Math.random() * 1000000);
 
-      const response2 = await fetch("/api/generate-video", {
+      const response2 = await fetch(`https://api.animo.video/code-to-video`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           code,
+          file_name: "GenScene.py",
+          file_class: "GenScene",
+          iteration,
+          project_name: "GenScene",
         }),
       });
 
@@ -81,13 +86,18 @@ const Switcher = ({ translations }: { translations?: any }) => {
     e.preventDefault();
     setRenderizationLoading(true);
     try {
-      const response = await fetch("/api/generate-video", {
+      const iteration = Math.floor(Math.random() * 1000000);
+      const response = await fetch("https://api.animo.video/code-to-video", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           code: codeToVideo,
+          file_name: "GenScene.py",
+          file_class: "GenScene",
+          iteration,
+          project_name: "GenScene",
         }),
       });
       const data = await response.json();
