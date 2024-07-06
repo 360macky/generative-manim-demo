@@ -1,6 +1,7 @@
 {
   "Index": {
     "pageDescription": "GPT para generación de video",
+    "pageDetailedDescription": "Generative Manim es una herramienta de código abierto para generar videos animados a partir de texto. Construido sobre Manim.",
     "generateVideo": "Generar Video",
     "renderEngine": "Motor de renderizado",
     "promptGenerator": "Generador de prompts"

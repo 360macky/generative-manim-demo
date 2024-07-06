@@ -241,6 +241,9 @@ const Switcher = ({ translations }: { translations?: any }) => {
                     <option value="ft:gpt-3.5-turbo-1106:astronware:generative-manim-2:9OeVevto">
                       Fine-tuned GPT-3.5
                     </option>
+                    <option value="ft:gpt-3.5-turbo-1106:astronware:gm-physics-01:9hr68Zu9">
+                      Physics Fine-tuned GPT-3.5
+                    </option>
                   </optgroup>
                   <optgroup label="Claude">
                     <option value="claude-3-5-sonnet-20240620">

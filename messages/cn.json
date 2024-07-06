@@ -1,6 +1,7 @@
 {
   "Index": {
     "pageDescription": "用于视频生成的GPT",
+    "pageDetailedDescription": "Generative Manim 是一款开源工具，用于从文本生成动画视频。基于 Manim 库构建。",
     "generateVideo": "生成视频",
     "renderEngine": "渲染引擎",
     "promptGenerator": "提示生成器"
