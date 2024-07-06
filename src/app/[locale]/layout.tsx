@@ -30,7 +30,7 @@ export default function LocaleLayout({
 }>) {
   const t = useTranslations("Index");
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark:[color-scheme:dark]">
       <body>
         {children}
         <Analytics />

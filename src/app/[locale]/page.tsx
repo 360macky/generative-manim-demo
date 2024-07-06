@@ -33,17 +33,7 @@ export default function Home() {
             className="max-w-screen-lg mx-auto p-2"
             itemProp="description"
           >
-            <b>Generative Manim</b> is an open-source tool for generating{" "}
-            animation videos from text. — Built on top of the{" "}
-            <a
-              href="https://docs.manim.community/en/stable/index.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-rose-300 underline-offset-4"
-            >
-              Manim
-            </a>{" "}
-            library.
+            {t("pageDetailedDescription")}
           </section>
           <section className="max-w-screen-lg mx-auto p-2">
             <Switcher
@@ -162,11 +152,19 @@ export default function Home() {
                   className="text-xl lg:text-2xl my-2 font-semibold tracking-tight"
                   id="other-models"
                 >
-                  🕹️ Other models
+                  💡 GPT-3.5 Fine-Tuned for Physics
                 </h3>
                 <p>
-                  We are currently working on creating new models to integrate
-                  with Generative Manim.
+                  A GPT-3.5 model fined-tuned to generate Manim for the{" "}
+                  <a
+                    href="https://manim-physics.readthedocs.io/en/latest/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-rose-300 underline-offset-4"
+                  >
+                    Manim Physics
+                  </a>{" "}
+                  plugin.
                 </p>
               </div>
             </div>
