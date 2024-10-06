@@ -58,7 +58,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
       setCodeToVideo(code);
       const iteration = Math.floor(Math.random() * 1000000);
 
-      const response2 = await fetch(`https://api.animo.video/code-to-video`, {
+      const response2 = await fetch(`${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/v1/video/rendering`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
     setRenderizationLoading(true);
     try {
       const iteration = Math.floor(Math.random() * 1000000);
-      const response = await fetch("https://api.animo.video/code-to-video", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/v1/video/rendering`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
