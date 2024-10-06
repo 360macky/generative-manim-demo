@@ -41,7 +41,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
     // Use handleCodeGeneration and handleRenderization in sequence
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/generate-code`,
+        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/v1/code/generation`,
         {
           method: "POST",
           headers: {
@@ -115,7 +115,7 @@ const Switcher = ({ translations }: { translations?: any }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/generate-code`,
+        `${process.env.NEXT_PUBLIC_SERVER_PROCESSOR}/v1/code/generation`,
         {
           method: "POST",
           headers: {
